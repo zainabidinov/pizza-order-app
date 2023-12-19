@@ -1,8 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-// react-router library installed
 import { BrowserRouter } from "react-router-dom";
-// react-redux library installed - that connects react library with redux library
 
 import { Provider } from "react-redux";
 

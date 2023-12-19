@@ -17,11 +17,9 @@ const filterSlice = createSlice({
       state.categoryId = action.payload;
     },
     setSort(state, action) {
-      // "payload" stores what we pass or assign 
       state.sort = action.payload;
     },
     setCurrentPage(state, action) {
-      // "payload" stores what we pass or assign 
       state.currentPage = action.payload;
     },
     setFilters(state, action) {
@@ -32,7 +30,6 @@ const filterSlice = createSlice({
   },
 });
 
-// "actions" is an object that holds methods under the "reducers" property
 export const { setCategoryId, setSort, setCurrentPage, setFilters} = filterSlice.actions;
 
 export default filterSlice.reducer;

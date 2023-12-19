@@ -11,7 +11,6 @@ import { useNavigate } from "react-router-dom";
 
 import Categories from "../components/Categories";
 import Sort from "../components/Sort";
-// instead of PizzaBlock/PizzaBlock we created index.jsx in the folder to overcome tautology
 import PizzaBlock from "../components/PizzaBlock";
 import Skeleton from "../components/PizzaBlock/Skeleton";
 import Pagination from "../components/Pagination";
@@ -20,12 +19,9 @@ import { sortList } from "../components/Sort";
 
 const Home = () => {
   const navigate = useNavigate();
-  // asking from redux to return a function so we can use it with variable "dispatch"
   const dispatch = useDispatch();
   const isSearch = React.useRef(false);
   const isMounted = React.useRef(false);
-  // by "useSelector" we can take out data from our store
-  // assigned to "categoryId" variable
   const categoryId = useSelector((state) => state.filter.categoryId);
   const sortType = useSelector((state) => state.filter.sort.sortProperty);
   const currentPage = useSelector((state) => state.filter.currentPage);
@@ -35,7 +31,6 @@ const Home = () => {
   const { searchValue } = React.useContext(searchContext);
   const [items, setItems] = React.useState([]);
   const [isLoading, setIsLoading] = React.useState(true);
-  // const [currentPage, setCurrentPage] = React.useState(1);
 
   const onChangeCategory = (id) => {
     console.log(id);
@@ -54,18 +49,9 @@ const Home = () => {
     const category = categoryId > 0 ? `category=${categoryId}` : "";
     const search = searchValue ? `&search=${searchValue}` : "";
 
-    // fetch(
-    //   `https://62de51cc79b9f8c30ab71ebd.mockapi.io/items?page=${currentPage}&limit=4&${category}&sortBy=${sortBy}&order=${order}${search}`
-    // )
-    //   .then((res) => res.json())
-    //   .then((arr) => {
-    //     setItems(arr);
-    //     setIsLoading(false);
-    //   });
-
     axios
       .get(
-        `https://62de51cc79b9f8c30ab71ebd.mockapi.io/items?page=${currentPage}&limit=4&${category}&sortBy=${sortBy}&order=${order}${search}`
+        `https://65719556d61ba6fcc0130158.mockapi.io/items?page=${currentPage}&limit=4&${category}&sortBy=${sortBy}&order=${order}${search}`
       )
       .then((res) => {
         setItems(res.data);
@@ -73,7 +59,6 @@ const Home = () => {
       });
   };
 
-  // If there was first render, the we check URL parameters and save in redux
   React.useEffect(() => {
     if (window.location.search) {
       const params = qs.parse(window.location.search.substring(1));
@@ -102,13 +87,13 @@ const Home = () => {
   }, [categoryId, sortType, searchValue, currentPage]);
 
   React.useEffect(() => {
-    if(isMounted.current) {
+    if (isMounted.current) {
       const queryString = qs.stringify({
         sortProperty: sortType,
         categoryId,
         currentPage,
       });
-  
+
       navigate(`?${queryString}`);
     }
     isMounted.current = true;

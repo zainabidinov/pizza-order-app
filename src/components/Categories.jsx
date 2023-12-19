@@ -8,7 +8,6 @@ function Categories({ value, onChangeCategory }) {
     "Vegan",
     "Grills",
     "Spicy",
-    "Covered",
   ];
 
   

@@ -12,7 +12,7 @@ const CartEmpty = () => {
         <p>
           It seems you have not ordered pizza yet.
           <br />
-          For ordering pizza, please go to the home page.
+          To order pizza, visit the homepage.
         </p>
         <img src={cartEmptyImg} alt="Empty cart" />
         <Link to="/" class="button button--black">

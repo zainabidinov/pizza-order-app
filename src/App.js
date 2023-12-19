@@ -8,8 +8,6 @@ import NotFound from "./pages/NotFound";
 import "./scss/app.scss";
 import { Routes, Route } from "react-router-dom";
 
-// using react context, has two components consumer and provider
-// "export" parts of the code can be exported away from the component as such
 export const searchContext = React.createContext("");
 
 

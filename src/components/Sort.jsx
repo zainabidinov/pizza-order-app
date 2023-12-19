@@ -13,7 +13,6 @@ export const sortList = [
 
 function Sort() {
   const dispatch = useDispatch();
-  // for taking out data "useSelector" has inside event listener logic
   const sort = useSelector((state) => state.filter.sort);
   const sortRef = React.useRef();
 
@@ -24,18 +23,18 @@ function Sort() {
     setOpen(false);
   };
 
-  // this hook used for making visible/invisible the sort content in the header component
   React.useEffect(() => {
-    // this will be called when the component rendered
     const handleClickOutside = (event) => {
       if (!event.path.includes(sortRef.current)) {
         setOpen(false);
+        console.log("click outside");
       }
     };
 
     document.body.addEventListener("click", handleClickOutside);
-    // this function is called when component is deleted
-    return () => document.body.removeEventListener("click", handleClickOutside);
+    return () => {
+      document.body.removeEventListener("click", handleClickOutside);
+    };
   }, []);
 
   return (
@@ -54,7 +53,6 @@ function Sort() {
           />
         </svg>
         <b>Sort by:</b>
-        {/* "!open" used for toggling the list of sortings */}
         <span onClick={() => setOpen(!open)}>{sort.name}</span>
       </div>
       {open && (

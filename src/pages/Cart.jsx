@@ -109,7 +109,7 @@ const Cart = () => {
             </span>
             <span>
               {" "}
-              Order amount: <b>{totalPrice} KGS</b>{" "}
+              Order amount: $<b>{totalPrice}</b>{" "}
             </span>
           </div>
           <div class="cart__bottom-buttons">

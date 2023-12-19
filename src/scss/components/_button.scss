@@ -1,6 +1,7 @@
-@import '../variables';
+@import "../variables";
 
 .button {
+ 
   display: inline-block;
   background-color: $orange;
   border-radius: 30px;
@@ -8,7 +9,8 @@
   min-width: 100px;
   text-align: center;
   cursor: pointer;
-  transition: background-color $duration ease-in-out, border-color $duration ease-in-out;
+  transition: background-color $duration ease-in-out,
+    border-color $duration ease-in-out;
   border: 1px solid transparent;
   @include noselect();
 
@@ -42,6 +44,11 @@
     min-width: 32px;
     padding: 0;
     border-width: 2px;
+
+    @media (max-width: 600px) {
+      width: 30px;
+      height: 30px;
+    }
   }
 
   &--black {
@@ -145,4 +152,5 @@
       font-size: 16px;
     }
   }
+
 }

@@ -21,10 +21,10 @@ function Header() {
             </div>
           </div>
         </Link>
-        <Search />
+        {/* <Search /> */}
         <div className="header__cart">
           <Link to="/cart" className="button button--cart">
-            <span>{totalPrice} KGS</span>
+            <span>${totalPrice}</span>
             <div className="button__delimiter"></div>
             <svg
               width="18"
